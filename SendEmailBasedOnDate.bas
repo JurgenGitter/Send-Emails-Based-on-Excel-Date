@@ -14,7 +14,7 @@ Sub SendEmailBasedOnDate()
  
     Set ws = ThisWorkbook.Sheets("Sheet1") ' <-- change sheet1 to name of sheet
     lastRow = ws.Cells(ws.Rows.Count, COL_DATE).End(xlUp).Row
-    ' Create Outlook instance
+    
     Set OutApp = CreateObject("Outlook.Application")
     For i = 2 To lastRow
         BMemail = ws.Cells(i, COL_BMMAIL).Value
@@ -27,8 +27,8 @@ Sub SendEmailBasedOnDate()
                     .To = BMemail & ";" & DSMemail
                     .Subject = "Automated Reminder"
                     .Body = "Hello," & vbCrLf & vbCrLf & _
-                            "This is a reminder that your Agility appointment is occurring today (" & Date & ")." & vbCrLf & vbCrLf & _
-                            "Thank you for your cooperation," & vbCrLf & "The Agility Team"
+                            "This is a reminder that your  appointment is occurring today (" & Date & ")." & vbCrLf & vbCrLf & _
+                            "Thank you for your cooperation," & vbCrLf & "The ______ Team"
                     .Send
                 End With
             End If
